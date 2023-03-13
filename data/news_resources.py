@@ -1,8 +1,12 @@
-from flask import jsonify
+from flask import jsonify, Flask
 from flask_restful import reqparse, abort, Api, Resource
 from data import db_session
 from data.news import News
 from data.reqparse import parser
+
+
+app = Flask(__name__)
+api = Api(app)
 
 
 def abort_if_news_not_found(news_id):

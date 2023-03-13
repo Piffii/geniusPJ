@@ -1,13 +1,16 @@
 from flask import Flask, render_template, redirect, request, abort, make_response, jsonify
+from flask_restful import Api
+
 from data import db_session, news_api, news_resources
-from data.users import User
 from data.news import News
+from data.users import User
 from forms.news import NewsForm
 from forms.user import RegisterForm, LoginForm
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 
 app = Flask(__name__)
+api = Api(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
