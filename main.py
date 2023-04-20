@@ -22,7 +22,7 @@ def load_user(user_id):
     return db_sess.query(User).get(user_id)
 
 
-@app.route("/")
+@app.route("/") #
 def index():
     db_sess = db_session.create_session()
     if current_user.is_authenticated:
